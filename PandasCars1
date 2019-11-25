@@ -1,0 +1,6 @@
+import pandas as pd
+Cars = pd.read_csv("cars.csv")
+f = Cars[0:5]
+l = Cars[-5:]
+c = pd.concat((f,l),axis=0)
+print("The first five rows and last five rows of the DataFrame are: \n", c)
