@@ -1,0 +1,16 @@
+import pandas as pd
+Cars = pd.read_csv("cars.csv")
+fo = Cars.loc[0:4, ::2]
+mo = Cars[Cars["Model"] == "Mazda RX4"]
+cyl = Cars.loc[Cars["Model"]=="Camaro Z28",("Model","cyl")]
+cylgear1 = Cars.loc[Cars["Model"]=="Mazda RX4 Wag", ("Model","cyl","gear")]
+cylgear2 = Cars.loc[Cars["Model"]=="Ford Pantera L", ("Model","cyl","gear")]
+cylgear3 = Cars.loc[Cars["Model"]=="Honda Civic", ("Model","cyl","gear")]
+cylgear = pd.concat((cylgear1,cylgear2,cylgear3), axis=0)
+print("The first five rows with odd-numbered columns of the DataFrame: \n", fo)
+print(" \n")
+print("Displaying the row that contain Mazda RX4 as the model: \n", mo)
+print(" \n")
+print("The # of cylinders of Camaro Z28: \n", cyl)
+print(" \n")
+print("The # of cylinders and the gear type of Mazda RX4 Wag, Ford Pantera L, and Honda Civic are: \n", cylgear)
